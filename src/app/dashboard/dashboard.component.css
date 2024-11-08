@@ -1,0 +1,51 @@
+/* src/app/dashboard/dashboard.component.css */
+.dashboard {
+  margin-top: 64px;
+  height: calc(100vh - 64px);
+  background-color: var(--bg-primary);
+  overflow: hidden;
+  padding: 1.25rem;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 58% 40%;
+  gap: 2%;
+  height: 100%;
+}
+
+.camera-section {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.section-title {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.025em;
+}
+
+.camera-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  height: calc(100% - 3rem);
+}
+
+.camera-feed-wrapper {
+  height: 100%;
+  min-height: 200px;
+}
+
+.table-section {
+  height: 100%;
+  overflow: hidden;
+}
+  

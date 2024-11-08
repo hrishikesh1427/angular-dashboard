@@ -1,0 +1,22 @@
+<!-- src/app/dashboard/dashboard.component.html -->
+
+<div class="dashboard">
+  <div class="dashboard-content">
+    <div class="camera-section">
+      <h2 class="section-title">Location Cameras</h2>
+      <div class="camera-grid">
+        <div *ngFor="let location of locationData" class="camera-feed-wrapper">
+          <app-camera-feed 
+            [cameraFeedURL]="'http://example.com/feed/' + location.value.cameraId"
+            [id]="location.value.cameraId"
+            [location]="location.key">
+          </app-camera-feed>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-section">
+      <app-location-table [locationData]="locationData"></app-location-table>
+    </div>
+  </div>
+</div>

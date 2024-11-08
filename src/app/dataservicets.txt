@@ -1,0 +1,62 @@
+// src/app/data.service.ts
+
+import { Injectable } from '@angular/core';
+
+interface Container {
+  id: string;
+  weight: number | null;
+}
+
+
+
+@Injectable({
+  providedIn: 'root',
+})
+export class DataService {
+  // Example hardcoded data (replace with real data/API calls)
+  getLocationData(): Record<string, { totalCount: number; containers: Container[]; cameraId: string; cameraStatus: string }> {
+    return {
+      "Weigh Bridge": {
+        totalCount: 1,
+        containers: [
+          { id: "C1", weight: 5.2 }
+        ],
+        cameraId: "CAM_WB",
+        cameraStatus: "active"
+      },
+      "DIP": {
+        totalCount: 3,
+        containers: [
+          { id: "C2", weight: null },
+          { id: "C3", weight: null },
+          { id: "C4", weight: null }
+        ],
+        cameraId: "CAM_DIP",
+        cameraStatus: "active"
+      },
+      "PCM": {
+        totalCount: 3,
+        containers: [
+          { id: "C5", weight: null },
+          { id: "C6", weight: null },
+          { id: "C7", weight: null }
+        ],
+        cameraId: "CAM_PCM",
+        cameraStatus: "active"
+      },
+      "Fill Area": {
+        totalCount: 3,
+        containers: [
+          { id: "C8", weight: null },
+          { id: "C9", weight: null },
+          { id: "C10", weight: null }
+        ],
+        cameraId: "CAM_FA",
+        cameraStatus: "active"
+      }
+    };
+  }
+}
+
+
+

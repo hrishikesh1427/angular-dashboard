@@ -1,0 +1,27 @@
+<!-- src/app/location-table/location-table.component.html -->
+
+<div class="table-container">
+  <table class="location-table">
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Containers</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let location of locationData">
+        <td>{{ location.key }}</td>
+        <td class="containers-cell">
+          <span *ngFor="let container of location.value.containers; let last = last">
+            <span class="container-id">{{ container.id }}</span>
+            <span class="container-weight" *ngIf="container.weight !== null">({{ container.weight }} tons)</span>
+            <span *ngIf="!last">, </span>
+          </span>
+        </td>
+        <td>{{ location.value.totalCount }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  

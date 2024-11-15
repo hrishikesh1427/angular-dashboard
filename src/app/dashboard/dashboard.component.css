@@ -1,6 +1,6 @@
 /* src/app/dashboard/dashboard.component.css */
 .dashboard {
-  margin-top: 64px;
+  margin-top: 60px;
   height: calc(100vh - 64px);
   background-color: var(--bg-primary);
   overflow: hidden;
@@ -17,11 +17,13 @@
 .camera-section {
   background: var(--card-bg);
   border-radius: 12px;
-  padding: 1.25rem;
+  padding: 1.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   height: 100%;
   overflow: hidden;
   border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
 }
 
 .section-title {
@@ -35,17 +37,139 @@
 .camera-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  gap: 1.5rem;
   height: calc(100% - 3rem);
+  overflow-y: auto;
+  padding-right: 0.5rem;
 }
 
 .camera-feed-wrapper {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
   height: 100%;
   min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.camera-feed {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--bg-primary);
+}
+
+.camera-feed img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camera-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-primary);
+  padding: 0.5rem;
+}
+
+.location-name {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.camera-status {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  color: #ffffff;
+}
+
+.camera-status.online {
+  background-color: #22c55e;
+}
+
+.camera-status.offline {
+  background-color: #ef4444;
+}
+
+/* Custom scrollbar for camera grid */
+.camera-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.camera-grid::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+.camera-grid::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.camera-grid::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
 }
 
 .table-section {
   height: 100%;
   overflow: hidden;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .dashboard-content {
+    gap: 1.5%;
+  }
+  
+  .camera-grid {
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-content {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .camera-section, .table-section {
+    height: auto;
+  }
+
+  .dashboard {
+    height: auto;
+    min-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+
+  .camera-grid {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dashboard {
+    padding: 0.75rem;
+  }
+
+  .camera-grid {
+    grid-template-columns: 1fr;
+    height: 400px;
+  }
+
+  .camera-feed-wrapper {
+    min-height: 150px;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
 }
   

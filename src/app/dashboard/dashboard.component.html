@@ -5,12 +5,22 @@
     <div class="camera-section">
       <h2 class="section-title">Location Cameras</h2>
       <div class="camera-grid">
-        <div *ngFor="let location of locationData" class="camera-feed-wrapper">
-          <app-camera-feed 
-            [cameraFeedURL]="'http://example.com/feed/' + location.value.cameraId"
-            [id]="location.value.cameraId"
-            [location]="location.key">
-          </app-camera-feed>
+        <div class="camera-feed-wrapper" *ngFor="let location of locationData">
+          <div class="camera-feed">
+            <div class="camera-info">
+              <span class="location-name">{{ location.key }}</span>
+              <span class="camera-status" 
+                    [class.online]="location.value.cameraStatus === 'active'"
+                    [class.offline]="location.value.cameraStatus === 'inactive'">
+                {{ location.value.cameraStatus || 'unknown' }}
+              </span>
+            </div>
+            <img 
+              [src]="frames[location.key]" 
+              [alt]="'Camera feed from ' + location.key"
+            >
+          </div>
+          
         </div>
       </div>
     </div>

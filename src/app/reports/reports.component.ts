@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {  HttpClient , HttpClientModule} from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ContainerReport } from './container-report.interface';
 
@@ -7,6 +7,7 @@ import { ContainerReport } from './container-report.interface';
   selector: 'app-reports',
   standalone: true,
   imports: [CommonModule, HttpClientModule],
+  providers: [HttpClient],
   template: `
     <div class="reports">
       <h1>Container Movement Reports</h1>

@@ -6,6 +6,7 @@ export interface PathEntry {
 
 export interface ContainerReport {
   containerNumber: string;
+  date: string;
   timeRange: {
     start: string;
     end: string;

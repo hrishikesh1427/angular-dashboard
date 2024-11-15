@@ -9,18 +9,20 @@
           <div class="camera-feed">
             <div class="camera-info">
               <span class="location-name">{{ location.key }}</span>
-              <span class="camera-status" 
-                    [class.online]="location.value.cameraStatus === 'active'"
-                    [class.offline]="location.value.cameraStatus === 'inactive'">
-                {{ location.value.cameraStatus || 'unknown' }}
-              </span>
+              <div class="camera-controls">
+                <span class="camera-status" 
+                      [class.online]="location.value.cameraStatus === 'active'"
+                      [class.offline]="location.value.cameraStatus === 'inactive'">
+                  {{ location.value.cameraStatus || 'unknown' }}
+                </span>
+                <i class="fas fa-expand expand-icon" (click)="openFullScreen(location.key)"></i>
+              </div>
             </div>
             <img 
               [src]="frames[location.key]" 
               [alt]="'Camera feed from ' + location.key"
             >
           </div>
-          
         </div>
       </div>
     </div>
@@ -29,4 +31,10 @@
       <app-location-table [locationData]="locationData"></app-location-table>
     </div>
   </div>
+</div>
+
+<!-- Full-screen modal -->
+<div *ngIf="fullScreenImage" class="full-screen-modal">
+  <img [src]="fullScreenImage" alt="Full screen camera view">
+  <button class="close-button" (click)="closeFullScreen()">X</button>
 </div>
